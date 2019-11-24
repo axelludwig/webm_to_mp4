@@ -49,10 +49,9 @@ namespace webm_to_mp4
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            path = string.Empty;
-
+            if (textBox1.Text == String.Empty) openFileDialog1.InitialDirectory = @"C:\";
+            else openFileDialog1.InitialDirectory = textBox1.Text;
             openFileDialog1.ShowDialog();
-            openFileDialog1.InitialDirectory = @"C:\";                       
             if (textBox1.Text == String.Empty && openFileDialog1.FileNames.Length != 0) {
                 var tab = openFileDialog1.FileNames[0].Split('\\');
                 for (int i = 0; i < tab.Length - 1; ++i) path += tab[i] + '\\';
